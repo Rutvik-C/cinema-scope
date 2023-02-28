@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="card">
+                <h3 class="m-3 card-title">{{ movie.title }}</h3>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <p class="card-text">Rating</p>
+                        <h5 class="card-title">{{ movie.rating }}/10</h5>
+                    </li>
+                    <li class="list-group-item">
+                        <p class="card-text">Cast</p>
+                        <h5 class="card-title">{{ movie.cast }}</h5>
+                    </li>
+                    <li class="list-group-item">
+                        <p class="card-text">Runtime</p>
+                        <h5 class="card-title">{{ movie.runtime }} minutes</h5>
+                    </li>
+                </ul>  
+                <br>
+                <a href="/" class="btn btn-secondary">Back</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+

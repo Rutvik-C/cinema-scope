@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="m-2 card-title">Update Movie</h5>
+
+                <div class="card-body">
+                    <form action="/update/{{ movie.id }}" method="post">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input class="form-control" type="text" name="title" placeholder="Title" value="{{ movie.title }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Rating</label>
+                            <input class="form-control" type="number" name="rating" placeholder="Rating" value="{{ movie.rating }}" step=".1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cast</label>
+                            <textarea class="form-control" name="cast" cols="100"
+                                      placeholder="Cast" required>{{ movie.cast }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Runtime</label>
+                            <input class="form-control" type="number" name="runtime" placeholder="Runtime" value="{{ movie.runtime }}" required>
+                        </div>
+                        <button class="btn btn-primary" type="submit">
+                            Update
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+

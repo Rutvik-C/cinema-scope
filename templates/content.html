@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card">
+                <h5 class="m-2 card-title">Add New Movie</h5>
+
+                <div class="card-body">
+                    <form action="/add" method="post">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input class="form-control" type="text" name="title" placeholder="Title" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Rating</label>
+                            <input class="form-control" type="number" name="rating" placeholder="Rating" step=".1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cast</label>
+                            <textarea class="form-control" name="cast" cols="100"
+                                      placeholder="Cast" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Runtime</label>
+                            <input class="form-control" type="number" name="runtime" placeholder="Runtime" required>
+                        </div>
+                        <button class="btn btn-primary" type="submit">
+                            Add
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Movies</th>
+                    <th>Operations</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for movie in movies %}
+                <tr>
+                    <td>{{ movie.title }}</td>
+                    <td>
+                        <a class="btn btn-primary"
+                           href="/view/{{ movie.id }}">
+                            View
+                        </a>
+                        <a class="btn btn-warning"
+                           href="/update/{{ movie.id }}">
+                            Update
+                        </a>
+                        <a class="btn btn-danger"
+                           href="/delete/{{ movie.id }}">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
