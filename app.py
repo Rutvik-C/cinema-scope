@@ -26,6 +26,8 @@ def view(id):
     if movie is not None:
         return render_template('view.html', movie=movie)
     
+    return redirect("/")
+    
 
 @app.route('/add', methods=['POST'])
 def addNewMovie():
@@ -33,7 +35,7 @@ def addNewMovie():
         data = dict(request.form)
         utils.addNewMovie(data)
         
-        return redirect('/')
+    return redirect('/')
 
 
 @app.route('/update/<string:id>')
@@ -41,6 +43,8 @@ def update(id):
     movie = utils.getMovie(id)
     if movie is not None:
         return render_template('update.html', movie=movie)
+    
+    return redirect("/")
 
 
 @app.route('/update/<string:id>', methods=['POST'])
@@ -49,7 +53,7 @@ def updateMovie(id):
         data = dict(request.form)
         utils.updateMovie(id, data)
         
-        return redirect('/')
+    return redirect('/')
     
 
 @app.route('/delete/<string:id>')
