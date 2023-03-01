@@ -24,7 +24,7 @@ class FirebaseUtils:
         
         return None
     
-    def addNewMovie(self, data):
+    def addMovie(self, data):
         self.db.collection("Movies").add(data)
         
     def updateMovie(self, id, data):

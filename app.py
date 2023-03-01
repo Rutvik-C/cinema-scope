@@ -33,7 +33,7 @@ def view(id):
 def addNewMovie():
     if request.method == 'POST':
         data = dict(request.form)
-        utils.addNewMovie(data)
+        utils.addMovie(data)
         
     return redirect('/')
 
